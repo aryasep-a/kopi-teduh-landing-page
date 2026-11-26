@@ -2,8 +2,8 @@
 
 ## 1.0.0
 - Rebuild prototype as Astro + TypeScript static site.
-- Separate business, menu, and testimonial data.
-- Add responsive navigation, category tabs, SVG gallery lightbox, WhatsApp reservation form.
+- Separate business and menu data; no unsupported testimonial section is shown.
+- Add responsive navigation, category tabs, SVG gallery lightbox, WhatsApp reservation form, and footer portfolio attribution.
 - Add local illustrations, local fonts, SEO metadata, Pages deployment and documentation.
 
 ## 1.0.1
