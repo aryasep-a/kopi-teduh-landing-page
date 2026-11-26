@@ -10,10 +10,10 @@ Live demo: https://aryasep-a.github.io/kopi-teduh-landing-page/ (setelah Pages d
 Responsive landing page, menu 3 kategori dengan keyboard tabs, hamburger mobile, lightbox SVG, form reservasi WhatsApp tervalidasi, mobile sticky CTA, halaman menu dan 404, SEO, JSON-LD, sitemap, robots, OG, favicon, dan manifest.
 
 ## Stack
-Astro 5 + TypeScript + CSS modular + npm. Astro menghasilkan static HTML ringan dan SEO-friendly. CSS native mempertahankan presisi desain tanpa framework UI; JavaScript vanilla hanya untuk interaksi. Fontsource membundel Newsreader dan Manrope lokal.
+Astro 7.4.13 + TypeScript 5.9.3 + CSS modular + npm. Astro menghasilkan static HTML ringan dan SEO-friendly. CSS native mempertahankan presisi desain tanpa framework UI; JavaScript vanilla hanya untuk interaksi. Fontsource membundel Newsreader dan Manrope lokal.
 
 ## Lokal
-Node.js 20+. Jalankan npm install lalu npm run dev. Pemeriksaan: npm run lint, npm run check, npm run build, npm run preview. Salin .env.example ke .env.
+Node.js 22.23.4+. Jalankan npm install lalu npm run dev. Pemeriksaan: npm run lint, npm run check, npm run build, npm run preview. Salin .env.example ke .env.
 
 ## Struktur
 src/components (Navbar, PhotoArt, MenuSection, Gallery, ReservationForm); src/data (site.ts, menu.ts, testimonials.ts); src/layouts; src/pages (index, menu, 404); src/styles; public (SVG, manifest, sitemap, robots); docs (DESIGN, CREDITS).
