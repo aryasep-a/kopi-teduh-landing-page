@@ -1,34 +1,72 @@
 # Kopi Teduh
 
-Template landing page sample untuk usaha kopi fiktif di Kota Tangerang, dibuat sebagai proyek portfolio web designer oleh Arya Septian.
+Landing page portfolio untuk kedai kopi fiktif di Kota Tangerang, dengan fotografi lokal yang dioptimalkan dan interaksi reservasi WhatsApp.
 
 [![CI](https://github.com/aryasep-a/kopi-teduh-landing-page/actions/workflows/ci.yml/badge.svg)](https://github.com/aryasep-a/kopi-teduh-landing-page/actions/workflows/ci.yml) [![Deploy](https://github.com/aryasep-a/kopi-teduh-landing-page/actions/workflows/pages.yml/badge.svg)](https://github.com/aryasep-a/kopi-teduh-landing-page/actions/workflows/pages.yml)
 
-Live demo: https://aryasep-a.github.io/kopi-teduh-landing-page/ (setelah Pages deploy). Screenshot desktop/mobile belum direkam dari browser nyata. Foto nyata Unsplash dipakai sebagai aset visual di hero, menu, cerita, galeri, dan lokasi.
+Live demo: https://aryasep-a.github.io/kopi-teduh-landing-page/
 
 ## Fitur
-Responsive landing page, menu 3 kategori dengan keyboard tabs, hamburger mobile, lightbox foto, form reservasi WhatsApp tervalidasi, mobile sticky CTA, halaman menu dan 404, SEO, JSON-LD, sitemap, robots, OG, favicon, dan manifest.
+
+- Landing page responsif dengan 12 item menu dalam tiga kategori.
+- Tiga testimoni contoh yang secara eksplisit diberi label konten fiktif.
+- Foto Unsplash diunduh ke `src/assets/`; tidak ada hotlink saat runtime.
+- File sumber WebP lokal, dengan varian AVIF/WebP responsif dan `srcset` melalui Astro Picture.
+- Galeri lightbox tersembunyi secara default, dibuka dengan interaksi pengguna dan ditutup dengan Escape.
+- Form reservasi memfilter slot waktu sesuai tanggal: Senin–Jumat 08.00–22.00 dan Sabtu–Minggu 07.00–23.00. Slot dimulai pada jam buka dan berakhir satu jam sebelum jam tutup.
+- Open Graph PNG 1200×630, Twitter Card, JSON-LD, sitemap, robots, favicon, dan manifest.
+- `noindex,nofollow` dan `Disallow: /` adalah default. Indexing hanya aktif bila `PUBLIC_ALLOW_INDEXING=true`.
 
 ## Stack
-Astro 7.4.13 + TypeScript 5.9.3 + CSS modular + npm. Astro menghasilkan static HTML ringan dan SEO-friendly. CSS native mempertahankan presisi desain tanpa framework UI; JavaScript vanilla hanya untuk interaksi. Fontsource membundel Newsreader dan Manrope lokal.
 
-## Lokal
-Node.js 22.23.4+. Jalankan npm install lalu npm run dev. Pemeriksaan: npm run lint, npm run check, npm run build, npm run preview. Salin .env.example ke .env.
+Astro 7 + TypeScript + CSS modular + JavaScript native. Astro dipilih untuk menghasilkan HTML statis yang ringan, mendukung optimasi gambar build-time, dan tidak membutuhkan framework UI berat. Foto diproses dengan Sharp. Font Newsreader dan Manrope dibundel lokal melalui Fontsource.
+
+## Menjalankan lokal
+
+Node.js 22.23.4 atau lebih baru.
+
+```bash
+npm ci
+npm run assets:download
+npm run dev
+```
+
+Perintah kualitas dan produksi:
+
+```bash
+npm run lint
+npm run check
+npm run build
+npm run preview
+```
+
+`npm run assets:download` mengunduh foto sumber Unsplash, membuat WebP lokal, dan menghasilkan `public/og-image.png`. Jalankan ulang setelah mengganti ID foto di `scripts/download-assets.mjs`.
 
 ## Struktur
-src/components (Navbar, PhotoArt, MenuSection, Gallery, ReservationForm); src/data (site.ts, menu.ts); src/layouts; src/pages (index, menu, 404); src/styles; public (favicon, OG, manifest, sitemap, robots); docs (DESIGN, CREDITS).
 
-## Ubah konten
-Edit kontak, alamat, jam, sosial, canonical di src/data/site.ts; menu dan harga di src/data/menu.ts; foto menu di src/data/menu.ts dan foto section di src/components/PhotoArt.astro.
+- `src/assets/`: foto WebP lokal.
+- `src/components/`: Navbar, PhotoArt, MenuSection, Gallery, ReservationForm.
+- `src/data/site.ts`: alamat, jam, kontak, sosial, canonical.
+- `src/data/menu.ts`: 12 item menu, kategori, harga, foto, dan alt.
+- `src/data/testimonials.ts`: tiga testimoni fiktif.
+- `src/layouts/`, `src/pages/`, `src/styles/`: layout, halaman, dan CSS.
+- `scripts/download-assets.mjs`: unduh dan optimasi foto serta gambar OG.
+- `docs/CREDITS.md`: atribusi dan lisensi foto/font.
 
-## Indexing
-PUBLIC_ALLOW_INDEXING=false adalah default lokal dan menghasilkan noindex,nofollow. Workflow GitHub Pages menetapkan PUBLIC_ALLOW_INDEXING=true untuk demo portfolio publik agar dapat ditemukan mesin pencari; ubah ke false di workflow jika pemilik tidak menginginkan indexing. robots.txt mengizinkan crawler; meta robots menjadi kontrol utama.
+## Mengganti konten
 
-## Deploy
-GitHub Pages: push main, buka Settings > Pages, pilih GitHub Actions. Workflow pages.yml mengaktifkan Pages, build folder dist dan deploy. Base path /kopi-teduh-landing-page telah diatur di astro.config.mjs. URL: https://aryasep-a.github.io/kopi-teduh-landing-page/.
+Edit informasi kedai di `src/data/site.ts`, menu di `src/data/menu.ts`, dan testimoni di `src/data/testimonials.ts`. Untuk mengganti foto, ubah ID dan nama file di `scripts/download-assets.mjs`, lalu jalankan `npm run assets:download` dan perbarui kredit.
 
-## Lighthouse
-Belum ada skor yang diklaim. Audit mobile dengan Chrome Lighthouse setelah build dan preview; simpan report serta screenshot di docs/screenshots. Target >=95 untuk Performance, Accessibility, Best Practices, SEO.
+## Indexing dan deploy
+
+Default lokal adalah non-indexable: meta robots `noindex,nofollow` dan robots.txt `Disallow: /`. Untuk mengizinkan indexing, set environment variable `PUBLIC_ALLOW_INDEXING=true` ketika build. Workflow Pages membaca GitHub Actions repository variable bernama `PUBLIC_ALLOW_INDEXING`; biarkan kosong atau set `false` untuk tetap noindex, dan set `true` hanya bila situs siap diindeks.
+
+Deploy ke GitHub Pages: buka **Settings → Pages**, pilih **GitHub Actions**, lalu push ke branch `main`. Base path `/kopi-teduh-landing-page` telah dikonfigurasi di `astro.config.mjs`.
+
+## Audit
+
+CI menjalankan lint, Astro/TypeScript check, dan build produksi. Workflow Pages menjalankan Lighthouse mobile setelah deploy dan mengunggah report sebagai artifact. Skor Lighthouse tidak dicantumkan sebagai angka sebelum audit selesai pada versi deploy yang aktif.
 
 ## Fiktif dan lisensi
-Kopi Teduh adalah usaha fiktif. Alamat, nomor, menu, harga, jam,  dan akun sosial adalah data demo. Foto Unsplash mengikuti Unsplash License dan dimuat dari CDN; font SIL OFL 1.1. Kode MIT. Detail di docs/CREDITS.md.
+
+Kopi Teduh adalah template sample usaha fiktif untuk portfolio web designer. Alamat, nomor, menu, harga, jam, sosial, dan testimoni adalah konten demo. Kode berlisensi MIT. Foto mengikuti Unsplash License dan font SIL OFL 1.1; lihat `docs/CREDITS.md`.
