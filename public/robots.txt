@@ -1,2 +1,3 @@
 User-agent: *
 Allow: /
+Sitemap: https://aryasep-a.github.io/kopi-teduh-landing-page/sitemap.xml
