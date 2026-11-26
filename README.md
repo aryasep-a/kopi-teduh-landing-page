@@ -1,42 +1,39 @@
-# Kopi Teduh — Kedai Kopi Fiktif
+# Kopi Teduh — Landing Page Portfolio
 
-Landing page portfolio untuk **Kopi Teduh**, konsep kedai kopi fiktif di Tangerang, Banten. Desain mengikuti art direction editorial yang hangat, tenang, dan minimal: tipografi serif, warna kopi dan krem, foto suasana kedai, menu yang bisa difilter, cerita brand, galeri, jam operasional, lokasi, dan CTA reservasi.
+Landing page untuk **Kopi Teduh**, konsep kedai kopi fiktif untuk sample portfolio. Art direction mengikuti desain editorial yang hangat dan minimal: warna krem, terakota, hijau, tipografi serif, dan placeholder foto berpola.
 
-> Kopi Teduh adalah brand fiktif untuk demonstrasi portfolio. Alamat, jam operasional, menu, harga, foto, dan ulasan pada halaman ini adalah materi contoh. Ganti dengan data bisnis dan aset berizin sebelum digunakan secara komersial.
+> Kopi Teduh adalah brand fiktif. Alamat, jam operasional, menu, harga, dan ulasan merupakan konten contoh. Ganti seluruh placeholder dan data demo sebelum penggunaan nyata.
 
 ## Fitur
 
-- Layout responsif desktop, tablet, dan mobile.
-- Navigasi mobile dengan tombol menu.
-- Kategori menu interaktif: Kopi, Non-Kopi, dan Makanan.
-- CTA reservasi WhatsApp (nomor demo).
-- Bagian cerita, suasana, ulasan contoh, lokasi, dan jam operasional.
-- HTML semantik, metadata dasar, lazy loading gambar, dan reduced-motion support.
-
-## Teknologi
-
-HTML, CSS, dan JavaScript vanilla. Tidak memerlukan framework atau proses build.
+- Satu file `index.html` berisi HTML, CSS, dan JavaScript vanilla.
+- Responsif dengan breakpoint utama 768px.
+- Navigasi hamburger untuk mobile.
+- Filter menu interaktif: Kopi, Non-Kopi, dan Makanan.
+- Smooth scrolling, hover state, dan dukungan reduced motion.
+- Tombol reservasi mengambang di bagian bawah layar khusus mobile.
+- GitHub Actions untuk deployment ke GitHub Pages.
 
 ## Menjalankan lokal
 
-Buka `index.html` di browser atau jalankan:
+Buka `index.html` di browser, atau jalankan server lokal:
 
 ```bash
 python -m http.server 8000
 ```
 
-Lalu buka http://localhost:8000.
+Kemudian buka http://localhost:8000.
 
 ## Sebelum dipublikasikan
 
-1. Ganti nomor WhatsApp demo `6281234567890`.
-2. Ganti alamat, tautan Maps, jam operasional, menu, dan harga dengan informasi aktual.
-3. Ganti foto stok dengan foto kedai, barista, dan menu milik bisnis atau aset yang memiliki izin penggunaan.
-4. Ganti placeholder ulasan dengan testimoni pelanggan yang nyata dan telah mendapat izin.
-5. Uji tautan, performa gambar, aksesibilitas, dan layout di beberapa ukuran layar.
+1. Ganti alamat dan tautan Google Maps.
+2. Ganti nomor/tautan WhatsApp demo.
+3. Ganti placeholder foto dengan aset kedai yang memiliki izin penggunaan.
+4. Ganti nama pelanggan placeholder dengan testimoni nyata yang telah mendapat izin.
+5. Periksa menu, harga, dan jam operasional.
 
-## Struktur
+## Deployment
 
-- `index.html` — struktur dan konten Kopi Teduh.
-- `styles.css` — sistem visual dan responsive layout.
-- `script.js` — navigasi mobile, filter menu, dan tautan WhatsApp.
+Workflow `.github/workflows/pages.yml` menjalankan deployment otomatis setiap ada push ke branch `main`. Pastikan GitHub Pages menggunakan source **GitHub Actions**.
+
+Teknologi: HTML, CSS, JavaScript, dan Google Fonts (Newsreader + Manrope). Tanpa framework dan tanpa build step.
