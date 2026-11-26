@@ -6,12 +6,12 @@ import interior from '../assets/gallery-interior.webp';
 import bar from '../assets/gallery-bar.webp';
 import terrace from '../assets/gallery-terrace.webp';
 import location from '../assets/location-cafe.webp';
-interface Props { kind?: 'hero' | 'beans' | 'interior' | 'bar' | 'terrace' | 'map'; label?: string; class?: string; loading?: 'eager' | 'lazy'; }
-const { kind = 'hero', label = 'Suasana kedai kopi yang hangat', class: className = '', loading = 'lazy' } = Astro.props;
+interface Props { kind?: 'hero' | 'beans' | 'interior' | 'bar' | 'terrace' | 'map'; label?: string; class?: string; loading?: 'eager' | 'lazy'; sizes?: string; }
+const { kind = 'hero', label = 'Suasana kedai kopi yang hangat', class: className = '', loading = 'lazy', sizes: imageSizes } = Astro.props;
 const photos = { hero, beans, interior, bar, terrace, map: location };
 const widths = kind === 'hero' ? [640, 960, 1400] : [480, 800, 1200];
 ---
 <div class:list={['photo', className]}>
-  <Picture src={photos[kind]} alt={label} widths={widths} sizes={kind === 'hero' ? '(max-width: 767px) 100vw, 48vw' : '(max-width: 767px) 100vw, 50vw'} formats={['avif', 'webp']} fallbackFormat="webp" loading={kind === 'hero' ? 'eager' : loading} decoding="async" fetchpriority={kind === 'hero' ? 'high' : 'auto'} />
+  <Picture src={photos[kind]} alt={label} widths={widths} sizes={imageSizes ?? (kind === 'hero' ? '(max-width: 767px) 100vw, 48vw' : '(max-width: 767px) 100vw, 50vw')} formats={['avif', 'webp']} fallbackFormat="webp" loading={kind === 'hero' ? 'eager' : loading} decoding="async" fetchpriority={kind === 'hero' ? 'high' : 'auto'} />
   <span class="photo-label" aria-hidden="true">{label}</span>
 </div>
