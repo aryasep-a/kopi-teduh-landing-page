@@ -1,6 +1,6 @@
 # Kopi Teduh
 
-Landing page portfolio untuk kedai kopi fiktif di Kota Tangerang dengan gaya editorial hangat.
+Template landing page sample untuk usaha kopi fiktif di Kota Tangerang, dibuat sebagai proyek portfolio web designer oleh Arya Septian.
 
 [![CI](https://github.com/aryasep-a/kopi-teduh-landing-page/actions/workflows/ci.yml/badge.svg)](https://github.com/aryasep-a/kopi-teduh-landing-page/actions/workflows/ci.yml) [![Deploy](https://github.com/aryasep-a/kopi-teduh-landing-page/actions/workflows/pages.yml/badge.svg)](https://github.com/aryasep-a/kopi-teduh-landing-page/actions/workflows/pages.yml)
 
