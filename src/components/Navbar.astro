@@ -1,3 +1,66 @@
-<header class="site-header"><div class="container nav"><a class="brand" href="/kopi-teduh-landing-page/">Kopi Teduh</a><button class="toggle" aria-label="Buka navigasi" aria-controls="primary-nav" aria-expanded="false">☰</button><nav class="navlinks" id="primary-nav" aria-label="Navigasi utama"><a href="/kopi-teduh-landing-page/#menu">Menu</a><a href="/kopi-teduh-landing-page/#cerita">Cerita</a><a href="/kopi-teduh-landing-page/#suasana">Suasana</a><a href="/kopi-teduh-landing-page/#lokasi">Lokasi</a><a class="navcta" href="/kopi-teduh-landing-page/#reservasi" data-cta="nav-reservation">Kunjungi Kami</a></nav></div></header><script>
-const toggle=document.querySelector<HTMLButtonElement>('.toggle');const nav=document.querySelector<HTMLElement>('#primary-nav');const links=Array.from(nav?.querySelectorAll<HTMLAnchorElement>('a')??[]);const close=()=>{nav?.classList.remove('open');toggle?.setAttribute('aria-expanded','false');document.body.classList.remove('lock')};toggle?.addEventListener('click',()=>{const open=toggle.getAttribute('aria-expanded')!=='true';toggle.setAttribute('aria-expanded',String(open));nav?.classList.toggle('open',open);document.body.classList.toggle('lock',open);if(open)links[0]?.focus()});links.forEach(a=>a.addEventListener('click',close));document.addEventListener('keydown',e=>{if(e.key==='Escape'&&toggle?.getAttribute('aria-expanded')==='true'){close();toggle.focus()}if(e.key==='Tab'&&toggle?.getAttribute('aria-expanded')==='true'){const items=[toggle,...links];if(e.shiftKey&&document.activeElement===items[0]){e.preventDefault();items.at(-1)?.focus()}else if(!e.shiftKey&&document.activeElement===items.at(-1)){e.preventDefault();items[0]?.focus()}}});
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="/kopi-teduh-landing-page/" aria-label="Kopi Teduh, kembali ke beranda">Kopi Teduh</a>
+    <button class="toggle" type="button" aria-label="Buka navigasi" aria-controls="primary-nav" aria-expanded="false">
+      <span aria-hidden="true">☰</span>
+    </button>
+    <nav class="navlinks" id="primary-nav" aria-label="Navigasi utama">
+      <a href="/kopi-teduh-landing-page/#menu">Menu</a>
+      <a href="/kopi-teduh-landing-page/#cerita">Cerita</a>
+      <a href="/kopi-teduh-landing-page/#suasana">Suasana</a>
+      <a href="/kopi-teduh-landing-page/#lokasi">Lokasi</a>
+      <a class="navcta" href="/kopi-teduh-landing-page/#reservasi" data-cta="nav-reservation">Kunjungi Kami</a>
+    </nav>
+  </div>
+</header>
+<script>
+const toggle = document.querySelector<HTMLButtonElement>('.toggle');
+const nav = document.querySelector<HTMLElement>('#primary-nav');
+const header = document.querySelector<HTMLElement>('.site-header');
+const links = Array.from(nav?.querySelectorAll<HTMLAnchorElement>('a') ?? []);
+
+const setMenuOpen = (open: boolean) => {
+  if (!toggle || !nav) return;
+  toggle.setAttribute('aria-expanded', String(open));
+  toggle.setAttribute('aria-label', open ? 'Tutup navigasi' : 'Buka navigasi');
+  nav.classList.toggle('open', open);
+};
+
+toggle?.addEventListener('click', () => {
+  const willOpen = toggle.getAttribute('aria-expanded') !== 'true';
+  // Keep focus on the toggle: moving focus to an anchor near the top
+  // would make mobile browsers scroll the page back to the header.
+  setMenuOpen(willOpen);
+});
+
+links.forEach(link => link.addEventListener('click', () => setMenuOpen(false)));
+
+document.addEventListener('click', event => {
+  if (toggle?.getAttribute('aria-expanded') !== 'true') return;
+  if (event.target instanceof Node && !header?.contains(event.target)) setMenuOpen(false);
+});
+
+document.addEventListener('keydown', event => {
+  if (toggle?.getAttribute('aria-expanded') !== 'true') return;
+  if (event.key === 'Escape') {
+    setMenuOpen(false);
+    toggle?.focus({ preventScroll: true });
+    return;
+  }
+  if (event.key !== 'Tab' || !toggle) return;
+  const items = [toggle, ...links];
+  const first = items[0];
+  const last = items[items.length - 1];
+  if (event.shiftKey && document.activeElement === first) {
+    event.preventDefault();
+    last?.focus({ preventScroll: true });
+  } else if (!event.shiftKey && document.activeElement === last) {
+    event.preventDefault();
+    first?.focus({ preventScroll: true });
+  }
+});
+
+window.matchMedia('(min-width: 768px)').addEventListener('change', event => {
+  if (event.matches) setMenuOpen(false);
+});
 </script>
