@@ -2,9 +2,9 @@
 import PhotoArt from './PhotoArt.astro';
 ---
 <section class="section" id="suasana"><div class="container"><div class="heading"><h2>Suasana di Teduh</h2></div><div class="gallery">
-<button data-lightbox aria-label="Perbesar foto interior kedai dengan pencahayaan hangat"><PhotoArt kind="interior" label="Interior kedai dengan meja kayu dan cahaya hangat"/></button>
-<button data-lightbox aria-label="Perbesar foto area bar dan peralatan seduh"><PhotoArt kind="bar" label="Area bar dengan mesin espresso dan perlengkapan seduh"/></button>
-<button data-lightbox aria-label="Perbesar foto area duduk di teras kedai"><PhotoArt kind="terrace" label="Area duduk teras dengan tanaman dan kursi kayu"/></button>
+<button data-lightbox aria-label="Perbesar foto interior kedai dengan pencahayaan hangat"><PhotoArt kind="interior" label="Interior kedai dengan meja kayu dan cahaya hangat" sizes="(max-width: 767px) 100vw, 40vw"/></button>
+<button data-lightbox aria-label="Perbesar foto area bar dan peralatan seduh"><PhotoArt kind="bar" label="Area bar dengan mesin espresso dan perlengkapan seduh" sizes="(max-width: 767px) 50vw, 25vw"/></button>
+<button data-lightbox aria-label="Perbesar foto area duduk di teras kedai"><PhotoArt kind="terrace" label="Area duduk teras dengan tanaman dan kursi kayu" sizes="(max-width: 767px) 50vw, 25vw"/></button>
 </div></div></section>
 <div class="lightbox" role="dialog" aria-modal="true" aria-label="Pratinjau foto" hidden><button type="button" aria-label="Tutup pratinjau">×</button><div id="lightbox-art"></div></div>
 <script>
