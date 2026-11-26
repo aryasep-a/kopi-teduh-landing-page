@@ -10,7 +10,22 @@ const schema = { '@context': 'https://schema.org', '@type': 'CafeOrCoffeeShop', 
 <!doctype html><html lang="id"><head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="theme-color" content="#F5EFE6"/>
 <title>{title} | Kopi Teduh</title><meta name="description" content={description}/><link rel="canonical" href={canonical}/><meta name="robots" content={index?'index,follow':'noindex,nofollow'}/>
-<meta property="og:type" content="website"/><meta property="og:locale" content="id_ID"/><meta property="og:title" content={title+' | Kopi Teduh'}/><meta property="og:description" content={description}/><meta property="og:url" content={canonical}/><meta property="og:image" content={site.canonical+'og-image.png'}/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image:type" content="image/png"/>
-<meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content={title+' | Kopi Teduh'}/><meta name="twitter:description" content={description}/><meta name="twitter:image" content={site.canonical+'og-image.png'}/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="Kopi Teduh"/>
+<meta property="og:locale" content="id_ID"/>
+<meta property="og:title" content={title+' | Kopi Teduh'}/>
+<meta property="og:description" content={description}/>
+<meta property="og:url" content={canonical}/>
+<meta property="og:image" content={site.canonical+'og-image.png'}/>
+<meta property="og:image:secure_url" content={site.canonical+'og-image.png'}/>
+<meta property="og:image:type" content="image/png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:image:alt" content="Kopi Teduh — kedai kopi hangat dengan sajian kopi dan suasana nyaman di Kota Tangerang"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content={title+' | Kopi Teduh'}/>
+<meta name="twitter:description" content={description}/>
+<meta name="twitter:image" content={site.canonical+'og-image.png'}/>
+<meta name="twitter:image:alt" content="Kopi Teduh — kedai kopi hangat dengan sajian kopi dan suasana nyaman di Kota Tangerang"/>
 <link rel="icon" href="/kopi-teduh-landing-page/favicon.ico" sizes="any"/><link rel="icon" href="/kopi-teduh-landing-page/favicon.svg" type="image/svg+xml"/><link rel="apple-touch-icon" href="/kopi-teduh-landing-page/apple-touch-icon.png"/><link rel="manifest" href="/kopi-teduh-landing-page/site.webmanifest"/>
 <script type="application/ld+json" set:html={JSON.stringify(schema)}></script></head><body><a class="skip" href="#konten">Lewati ke konten</a><slot/></body></html>
