@@ -65,7 +65,7 @@ Deploy ke GitHub Pages: buka **Settings → Pages**, pilih **GitHub Actions**, l
 
 ## Audit
 
-CI menjalankan lint, Astro/TypeScript check, dan build produksi. Workflow Pages menjalankan Lighthouse mobile setelah deploy dan mengunggah report sebagai artifact. Skor Lighthouse tidak dicantumkan sebagai angka sebelum audit selesai pada versi deploy yang aktif.
+CI terakhir (mobile, GitHub Pages) menghasilkan Lighthouse: Performance **100**, Accessibility **100**, Best Practices **100**, SEO **66**. SEO sengaja lebih rendah karena default situs memakai `noindex,nofollow` untuk usaha fiktif. Untuk mengizinkan indexing dan audit SEO penuh, set repository variable `PUBLIC_ALLOW_INDEXING=true`. [Buka laporan Lighthouse](https://storage.googleapis.com/lighthouse-infrastructure.appspot.com/reports/1795725459297-81623.report.html).
 
 ## Fiktif dan lisensi
 
