@@ -68,3 +68,48 @@ img{max-width:100%}
 
 /* Defer off-screen section rendering without collapsing their reserved layout space. */
 .story,#suasana,.testimonials,#lokasi,.reserve{content-visibility:auto;contain-intrinsic-size:auto 560px}
+
+/* Footer layout: keep the copyright as one natural text flow, not grid fragments. */
+.footer{
+  display:grid;
+  grid-template-columns:1fr auto;
+  align-items:center;
+  column-gap:24px;
+  row-gap:16px;
+  padding:28px 0 calc(28px + env(safe-area-inset-bottom));
+}
+.footer>.brand{grid-column:1;grid-row:1}
+.footer>.footlinks{grid-column:2;grid-row:1;display:flex;flex-wrap:wrap;justify-content:flex-end;gap:clamp(12px,2vw,24px)}
+.footer>.footer-note{
+  grid-column:1/-1;
+  grid-row:2;
+  display:block;
+  width:100%;
+  margin:0;
+  padding-top:14px;
+  border-top:1px solid var(--line);
+  color:var(--muted);
+  text-align:center;
+  font-size:12px;
+  line-height:1.7;
+  overflow-wrap:anywhere;
+}
+.footer>.footer-note a{display:inline;color:var(--ink);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+@media(max-width:520px){
+  .footer{grid-template-columns:1fr;justify-items:center;row-gap:14px;padding-top:28px;padding-bottom:28px}
+  .footer>.brand,.footer>.footlinks,.footer>.footer-note{grid-column:1;grid-row:auto}
+  .footer>.brand{font-size:2rem}
+  .footer>.footlinks{justify-content:center;gap:20px}
+  .footer>.footer-note{font-size:12px;padding-top:16px}
+}
+@media(max-width:360px){
+  .footer>.footlinks{gap:14px}
+  .footer>.footer-note{font-size:11px}
+}
+
+/* Mobile dropdown navigation must not lock document scrolling or steal focus. */
+@media(max-width:767px){
+  body.lock{overflow:visible}
+  .navlinks{z-index:35;max-height:calc(100dvh - 90px);overflow-y:auto;box-shadow:0 14px 30px #24181218}
+  .toggle{flex:0 0 46px}
+}
