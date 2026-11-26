@@ -39,7 +39,7 @@ for(const [name,id] of assets){
 }
 // Build the social preview from the real, locally downloaded hero photo.
 // Always regenerate it so the deployed OG image cannot remain stale.
-await sharp(path.join(outputDir,'hero-coffee.webp'))
+await sharp(path.join(outputDir,'gallery-interior.webp'))
   .resize(1200,630,{fit:'cover',position:'attention'})
   .png({compressionLevel:9})
   .toFile('public/og-image.png');
