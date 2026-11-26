@@ -18,3 +18,11 @@
 - Fix photo frames so hero, story, location and gallery images fill their intended containers without beige gaps.
 - Improve mobile reservation CTA sizing, centering, safe-area placement and bottom content spacing.
 - Prevent horizontal overflow on narrow mobile screens and improve photo caption legibility.
+
+## 1.0.4
+- Download and optimize unique Unsplash photos into local WebP assets, with responsive AVIF/WebP srcsets.
+- Replace gallery labels with meaningful image descriptions and keep the lightbox hidden by default.
+- Generate a 1200×630 PNG social preview and use it for Open Graph and Twitter cards.
+- Make robots.txt and meta robots default to noindex unless PUBLIC_ALLOW_INDEXING=true.
+- Filter reservation time options according to the selected weekday.
+- Restore three explicitly fictional testimonials and keep exactly twelve menu items across three categories.
