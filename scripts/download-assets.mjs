@@ -18,7 +18,7 @@ const assets = [
   ['menu-tea','1722654583863-6116ec8f247a'],
   ['menu-lemon','1712056407267-1a38c7024a8f'],
   ['menu-croissant','1555507036-ab1f4038808a'],
-  ['menu-toast','1493857671500-72967e2e2760'],
+  ['menu-toast','1781018727513-70151e3e805a'],
   ['menu-banana-bread','1608198093002-ad4e005484ec'],
   ['menu-cookies','1499636136210-6f4ee915583e']
 ];
