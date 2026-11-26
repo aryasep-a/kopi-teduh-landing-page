@@ -1,39 +1,34 @@
-# Kopi Teduh — Landing Page Portfolio
+# Kopi Teduh
 
-Landing page untuk **Kopi Teduh**, konsep kedai kopi fiktif untuk sample portfolio. Art direction mengikuti desain editorial yang hangat dan minimal: warna krem, terakota, hijau, tipografi serif, dan placeholder foto berpola.
+Landing page portfolio untuk kedai kopi fiktif di Kota Tangerang dengan gaya editorial hangat.
 
-> Kopi Teduh adalah brand fiktif. Alamat, jam operasional, menu, harga, dan ulasan merupakan konten contoh. Ganti seluruh placeholder dan data demo sebelum penggunaan nyata.
+[![CI](https://github.com/aryasep-a/kopi-teduh-landing-page/actions/workflows/ci.yml/badge.svg)](https://github.com/aryasep-a/kopi-teduh-landing-page/actions/workflows/ci.yml) [![Deploy](https://github.com/aryasep-a/kopi-teduh-landing-page/actions/workflows/pages.yml/badge.svg)](https://github.com/aryasep-a/kopi-teduh-landing-page/actions/workflows/pages.yml)
+
+Live demo: https://aryasep-a.github.io/kopi-teduh-landing-page/ (setelah Pages deploy). Screenshot desktop/mobile belum direkam dari browser nyata.
 
 ## Fitur
+Responsive landing page, menu 3 kategori dengan keyboard tabs, hamburger mobile, lightbox SVG, form reservasi WhatsApp tervalidasi, mobile sticky CTA, halaman menu dan 404, SEO, JSON-LD, sitemap, robots, OG, favicon, dan manifest.
 
-- Satu file `index.html` berisi HTML, CSS, dan JavaScript vanilla.
-- Responsif dengan breakpoint utama 768px.
-- Navigasi hamburger untuk mobile.
-- Filter menu interaktif: Kopi, Non-Kopi, dan Makanan.
-- Smooth scrolling, hover state, dan dukungan reduced motion.
-- Tombol reservasi mengambang di bagian bawah layar khusus mobile.
-- GitHub Actions untuk deployment ke GitHub Pages.
+## Stack
+Astro 5 + TypeScript + CSS modular + npm. Astro menghasilkan static HTML ringan dan SEO-friendly. CSS native mempertahankan presisi desain tanpa framework UI; JavaScript vanilla hanya untuk interaksi. Fontsource membundel Newsreader dan Manrope lokal.
 
-## Menjalankan lokal
+## Lokal
+Node.js 20+. Jalankan npm install lalu npm run dev. Pemeriksaan: npm run lint, npm run check, npm run build, npm run preview. Salin .env.example ke .env.
 
-Buka `index.html` di browser, atau jalankan server lokal:
+## Struktur
+src/components (Navbar, PhotoArt, MenuSection, Gallery, ReservationForm); src/data (site.ts, menu.ts, testimonials.ts); src/layouts; src/pages (index, menu, 404); src/styles; public (SVG, manifest, sitemap, robots); docs (DESIGN, CREDITS).
 
-```bash
-python -m http.server 8000
-```
+## Ubah konten
+Edit kontak, alamat, jam, sosial, canonical di src/data/site.ts; menu dan harga di src/data/menu.ts; testimoni di src/data/testimonials.ts; ilustrasi di public/images.
 
-Kemudian buka http://localhost:8000.
+## Indexing
+PUBLIC_ALLOW_INDEXING=false menghasilkan noindex,nofollow. Set true saat build hanya setelah data contoh diganti dan pemilik menyetujui indexing.
 
-## Sebelum dipublikasikan
+## Deploy
+GitHub Pages: push main, buka Settings > Pages, pilih GitHub Actions. Workflow pages.yml build folder dist dan deploy. Base path /kopi-teduh-landing-page telah diatur di astro.config.mjs. URL: https://aryasep-a.github.io/kopi-teduh-landing-page/.
 
-1. Ganti alamat dan tautan Google Maps.
-2. Ganti nomor/tautan WhatsApp demo.
-3. Ganti placeholder foto dengan aset kedai yang memiliki izin penggunaan.
-4. Ganti nama pelanggan placeholder dengan testimoni nyata yang telah mendapat izin.
-5. Periksa menu, harga, dan jam operasional.
+## Lighthouse
+Belum ada skor yang diklaim. Audit mobile dengan Chrome Lighthouse setelah build dan preview; simpan report serta screenshot di docs/screenshots. Target >=95 untuk Performance, Accessibility, Best Practices, SEO.
 
-## Deployment
-
-Workflow `.github/workflows/pages.yml` menjalankan deployment otomatis setiap ada push ke branch `main`. Pastikan GitHub Pages menggunakan source **GitHub Actions**.
-
-Teknologi: HTML, CSS, JavaScript, dan Google Fonts (Newsreader + Manrope). Tanpa framework dan tanpa build step.
+## Fiktif dan lisensi
+Kopi Teduh adalah usaha fiktif. Alamat, nomor, menu, harga, jam, testimoni, dan akun sosial adalah data demo. Aset ilustrasi orisinal; font SIL OFL 1.1. Kode MIT. Detail di docs/CREDITS.md.

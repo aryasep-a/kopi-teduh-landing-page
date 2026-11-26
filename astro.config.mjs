@@ -1,0 +1,1 @@
+import {defineConfig} from 'astro/config'; export default defineConfig({site:'https://aryasep-a.github.io',base:'/kopi-teduh-landing-page',output:'static'});
