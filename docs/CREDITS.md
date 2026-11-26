@@ -23,7 +23,7 @@ Foto merupakan visual ilustratif untuk bisnis fiktif Kopi Teduh, bukan dokumenta
 | menu-tea | Teh Serai Madu | 1722654583863-6116ec8f247a |
 | menu-lemon | Es Lemon Madu | 1712056407267-1a38c7024a8f |
 | menu-croissant | Croissant Mentega | 1555507036-ab1f4038808a |
-| menu-toast | Roti Panggang | 1493857671500-72967e2e2760 |
+| menu-toast | Roti Panggang | 1781018727513-70151e3e805a |
 | menu-banana-bread | Banana Bread | 1608198093002-ad4e005484ec |
 | menu-cookies | Cookies Cokelat | 1499636136210-6f4ee915583e |
 
