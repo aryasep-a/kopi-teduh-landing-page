@@ -69,10 +69,10 @@ jobs:
           npx --yes playwright@1.55.0 screenshot --browser chromium --viewport-size "1440,900" --full-page --wait-for-timeout 1500 https://aryasep-a.github.io/kopi-teduh-landing-page/ docs/screenshots/desktop.png
       - name: Commit screenshots
         run: |
-          if ! git diff --quiet -- docs/screenshots/; then
+          git add docs/screenshots/mobile.png docs/screenshots/desktop.png
+          if ! git diff --cached --quiet; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add docs/screenshots/mobile.png docs/screenshots/desktop.png
             git commit -m "docs: add desktop and mobile portfolio screenshots"
             git push
           fi
