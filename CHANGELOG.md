@@ -26,3 +26,8 @@
 - Make robots.txt and meta robots default to noindex unless PUBLIC_ALLOW_INDEXING=true.
 - Filter reservation time options according to the selected weekday.
 - Restore three explicitly fictional testimonials and keep exactly twelve menu items across three categories.
+
+## 1.0.5
+- Improve mobile rendering with deferred below-the-fold sections, desktop-only reveal observers, and gallery-specific responsive image sizes.
+- Use WebP fallback alongside AVIF/WebP sources.
+- Record Lighthouse mobile scores: Performance 100, Accessibility 100, Best Practices 100, SEO 66 (intentional default noindex).
