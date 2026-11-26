@@ -35,3 +35,17 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+
+  audit:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Lighthouse mobile audit
+        uses: treosh/lighthouse-ci-action@v12
+        with:
+          urls: |
+            https://aryasep-a.github.io/kopi-teduh-landing-page/
+          runs: 1
+          uploadArtifacts: true
+          temporaryPublicStorage: true
