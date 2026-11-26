@@ -1,6 +1,15 @@
 ---
 import PhotoArt from './PhotoArt.astro';
 ---
-<section class="section" id="suasana"><div class="container"><div class="heading"><h2>Suasana di Teduh</h2></div><div class="gallery"><button data-lightbox aria-label="Perbesar foto area dalam"><PhotoArt kind="interior" label="FOTO: area dalam, meja kayu"/></button><button data-lightbox aria-label="Perbesar foto bar"><PhotoArt kind="bar" label="FOTO: bar dan mesin espresso"/></button><button data-lightbox aria-label="Perbesar foto teras"><PhotoArt kind="terrace" label="FOTO: teras teduh"/></button></div></div></section><div class="lightbox" role="dialog" aria-modal="true" aria-label="Pratinjau gambar"><button type="button" aria-label="Tutup">×</button><div id="lightbox-art"></div></div><script>
-const box=document.querySelector<HTMLElement>('.lightbox');const art=document.querySelector<HTMLElement>('#lightbox-art');let opener:HTMLButtonElement|null=null;const close=()=>{box?.classList.remove('open');document.body.classList.remove('lock');opener?.focus()};document.querySelectorAll<HTMLButtonElement>('[data-lightbox]').forEach(b=>b.addEventListener('click',()=>{const image=b.querySelector('img');if(!image||!art||!box)return;opener=b;art.replaceChildren(image.cloneNode(true));box.classList.add('open');document.body.classList.add('lock');box.querySelector('button')?.focus()}));box?.querySelector('button')?.addEventListener('click',close);box?.addEventListener('click',e=>{if(e.target===box)close()});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&box?.classList.contains('open'))close()});
+<section class="section" id="suasana"><div class="container"><div class="heading"><h2>Suasana di Teduh</h2></div><div class="gallery">
+<button data-lightbox aria-label="Perbesar foto interior kedai dengan pencahayaan hangat"><PhotoArt kind="interior" label="Interior kedai dengan meja kayu dan cahaya hangat"/></button>
+<button data-lightbox aria-label="Perbesar foto area bar dan peralatan seduh"><PhotoArt kind="bar" label="Area bar dengan mesin espresso dan perlengkapan seduh"/></button>
+<button data-lightbox aria-label="Perbesar foto area duduk di teras kedai"><PhotoArt kind="terrace" label="Area duduk teras dengan tanaman dan kursi kayu"/></button>
+</div></div></section>
+<div class="lightbox" role="dialog" aria-modal="true" aria-label="Pratinjau foto" hidden><button type="button" aria-label="Tutup pratinjau">×</button><div id="lightbox-art"></div></div>
+<script>
+const box=document.querySelector<HTMLElement>('.lightbox');const art=document.querySelector<HTMLElement>('#lightbox-art');let opener:HTMLButtonElement|null=null;
+const close=()=>{if(!box)return;box.classList.remove('open');box.hidden=true;document.body.classList.remove('lock');opener?.focus()};
+document.querySelectorAll<HTMLButtonElement>('[data-lightbox]').forEach(button=>button.addEventListener('click',()=>{const image=button.querySelector('img');if(!image||!art||!box)return;opener=button;art.replaceChildren(image.cloneNode(true));box.hidden=false;box.classList.add('open');document.body.classList.add('lock');box.querySelector('button')?.focus()}));
+box?.querySelector('button')?.addEventListener('click',close);box?.addEventListener('click',event=>{if(event.target===box)close()});document.addEventListener('keydown',event=>{if(event.key==='Escape'&&box&&!box.hidden)close()});
 </script>
