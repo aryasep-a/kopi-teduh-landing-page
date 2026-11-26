@@ -1,4 +1,4 @@
-import { mkdir } from 'node:fs/promises';
+import { access, mkdir } from 'node:fs/promises';
 import path from 'node:path';
 import sharp from 'sharp';
 
@@ -22,6 +22,7 @@ const assets = [
   ['menu-banana-bread','1608198093002-ad4e005484ec'],
   ['menu-cookies','1499636136210-6f4ee915583e']
 ];
+const force=process.argv.includes('--force');
 const outputDir=path.resolve('src/assets');
 await mkdir(outputDir,{recursive:true});
 for(const [name,id] of assets){
@@ -32,6 +33,7 @@ for(const [name,id] of assets){
   await sharp(input).rotate().resize({width:1400,withoutEnlargement:true}).webp({quality:82,effort:5}).toFile(path.join(outputDir,name+'.webp'));
   console.log(`Optimized ${name}.webp`);
 }
+try{if(!force){await access('public/og-image.png');console.log('Using committed public/og-image.png');process.exit(0)}}catch{}
 const hero=await sharp(path.join(outputDir,'hero-coffee.webp')).resize(1200,630,{fit:'cover',position:'attention'}).toBuffer();
 const overlay=Buffer.from(`<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg"><rect width="1200" height="630" fill="#241812" opacity=".42"/><rect x="62" y="62" width="1076" height="506" rx="28" fill="none" stroke="#F5EFE6" stroke-opacity=".7" stroke-width="2"/><text x="112" y="190" fill="#F5EFE6" font-family="Georgia,serif" font-size="38">KEDAI KOPI · KOTA TANGERANG</text><text x="108" y="340" fill="#FFFFFF" font-family="Georgia,serif" font-size="112">Kopi Teduh</text><text x="114" y="416" fill="#FFF4E8" font-family="Arial,sans-serif" font-size="34">Duduk dulu, kopinya menyusul.</text><rect x="112" y="466" width="110" height="7" rx="3" fill="#C86B3D"/></svg>`);
 await sharp(hero).composite([{input:overlay}]).png({compressionLevel:9}).toFile('public/og-image.png');
