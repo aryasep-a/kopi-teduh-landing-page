@@ -22,10 +22,10 @@ src/components (Navbar, PhotoArt, MenuSection, Gallery, ReservationForm); src/da
 Edit kontak, alamat, jam, sosial, canonical di src/data/site.ts; menu dan harga di src/data/menu.ts; testimoni di src/data/testimonials.ts; ilustrasi di public/images.
 
 ## Indexing
-PUBLIC_ALLOW_INDEXING=false menghasilkan noindex,nofollow. Set true saat build hanya setelah data contoh diganti dan pemilik menyetujui indexing.
+PUBLIC_ALLOW_INDEXING=false menghasilkan noindex,nofollow. Set true saat build hanya setelah data contoh diganti dan pemilik menyetujui indexing. robots.txt mengizinkan crawler; meta robots tetap menjadi kontrol noindex default.
 
 ## Deploy
-GitHub Pages: push main, buka Settings > Pages, pilih GitHub Actions. Workflow pages.yml build folder dist dan deploy. Base path /kopi-teduh-landing-page telah diatur di astro.config.mjs. URL: https://aryasep-a.github.io/kopi-teduh-landing-page/.
+GitHub Pages: push main, buka Settings > Pages, pilih GitHub Actions. Workflow pages.yml mengaktifkan Pages, build folder dist dan deploy. Base path /kopi-teduh-landing-page telah diatur di astro.config.mjs. URL: https://aryasep-a.github.io/kopi-teduh-landing-page/.
 
 ## Lighthouse
 Belum ada skor yang diklaim. Audit mobile dengan Chrome Lighthouse setelah build dan preview; simpan report serta screenshot di docs/screenshots. Target >=95 untuk Performance, Accessibility, Best Practices, SEO.
