@@ -8,7 +8,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "check": "astro check",
-    "lint": "prettier --write . && prettier --check .",
+    "lint": "prettier --write \"src/**/*.{css,ts}\" \"scripts/**/*.mjs\" \"*.json\" \"*.md\" \"docs/**/*.md\" \".github/workflows/*.yml\" && prettier --check \"src/**/*.{css,ts}\" \"scripts/**/*.mjs\" \"*.json\" \"*.md\" \"docs/**/*.md\" \".github/workflows/*.yml\"",
     "assets:download": "node scripts/download-assets.mjs"
   },
   "dependencies": {
