@@ -40,7 +40,7 @@ npm run build
 npm run preview
 ```
 
-`npm run assets:download` mengunduh foto sumber Unsplash, membuat WebP lokal, dan menghasilkan `public/og-image.png`. Jalankan ulang setelah mengganti ID foto di `scripts/download-assets.mjs`.
+`npm run assets:download` mengunduh foto sumber Unsplash, membuat WebP lokal, dan menghasilkan `public/og-image.png`. Gunakan `npm run assets:download -- --force` setelah mengganti ID foto di `scripts/download-assets.mjs` agar foto dan OG image diperbarui.
 
 ## Struktur
 
