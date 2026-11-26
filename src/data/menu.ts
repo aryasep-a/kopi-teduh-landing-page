@@ -1,19 +1,29 @@
-export const categories=['Kopi','Non-Kopi','Makanan'] as const;
-const photo=(id:string,w=900)=>'https://images.unsplash.com/'+id+'?auto=format&fit=crop&w='+w+'&q=82';
-export const menu=[
-['Kopi Susu Teduh','Espresso, susu segar, dan gula aren. Favorit sepanjang hari.',28000,'Kopi',photo('photo-1495474472287-4d71bcdd2085'),'Kopi susu dengan latte art di cangkir keramik.'],
-['Manual Brew','V60 atau Japanese iced, pilih biji dan prosesnya.',32000,'Kopi',photo('photo-1511920170033-f8396924c348'),'Seduhan kopi manual dengan alat pour over.'],
-['Flat White','Double shot dengan microfoam halus.',30000,'Kopi',photo('photo-1509042239860-f550ce710b93'),'Flat white dengan microfoam lembut.'],
-['Americano','Espresso dan air, bersih dengan karakter biji pilihan.',22000,'Kopi',photo('photo-1498804103079-a6351b050096'),'Secangkir kopi hitam di meja kayu.'],
-['Café Latte','Espresso seimbang dengan susu lembut.',30000,'Kopi',photo('photo-1509042239860-f550ce710b93'),'Café latte dengan foam susu.'],
-['Cappuccino','Espresso, susu, dan foam dengan tekstur ringan.',29000,'Kopi',photo('photo-1495474472287-4d71bcdd2085'),'Cappuccino dengan latte art.'],
-['Cokelat Teduh','Cokelat pekat, susu segar, dan sedikit nostalgia.',27000,'Non-Kopi',photo('photo-1551024601-bec78aea704b'),'Minuman cokelat hangat.'],
-['Matcha Latte','Matcha pilihan dengan susu yang lembut.',30000,'Non-Kopi',photo('photo-1515823064-d6e0c04616a7'),'Matcha latte berwarna hijau lembut.'],
-['Teh Serai Madu','Teh hangat dengan serai dan madu lokal.',22000,'Non-Kopi',photo('photo-1544787219-7f47afb76574'),'Secangkir teh hangat.'],
-['Es Lemon Madu','Perasan lemon segar dengan madu dan es.',24000,'Non-Kopi',photo('photo-1513558161293-cdaf765edfd4'),'Minuman lemon segar dengan es.'],
-['Croissant Mentega','Renyah di luar, lembut berlapis di dalam.',24000,'Makanan',photo('photo-1555507036-ab1f4038808a'),'Croissant mentega berlapis keemasan.'],
-['Roti Panggang','Roti hangat dengan selai rumahan.',20000,'Makanan',photo('photo-1525351484163-7529414344d8'),'Roti panggang untuk teman minum kopi.'],
-['Banana Bread','Pisang matang, kayu manis, teman minum kopi.',26000,'Makanan',photo('photo-1608198093002-ad4e005484ec'),'Potongan banana bread.'],
-['Cookies Cokelat','Cookies panggang dengan potongan cokelat.',16000,'Makanan',photo('photo-1499636136210-6f4ee915583e'),'Cookies cokelat panggang.']
+import americano from '../assets/menu-americano.webp';
+import croissant from '../assets/menu-croissant.webp';
+import chocolate from '../assets/menu-chocolate.webp';
+import cookies from '../assets/menu-cookies.webp';
+import manualBrew from '../assets/menu-manual-brew.webp';
+import lemon from '../assets/menu-lemon.webp';
+import matcha from '../assets/menu-matcha.webp';
+import milkCoffee from '../assets/menu-kopi-susu.webp';
+import flatWhite from '../assets/menu-flat-white.webp';
+import toast from '../assets/menu-toast.webp';
+import tea from '../assets/menu-tea.webp';
+import bananaBread from '../assets/menu-banana-bread.webp';
+
+export const categories = ['Kopi', 'Non-Kopi', 'Makanan'] as const;
+export const menu = [
+  { name: 'Kopi Susu Teduh', description: 'Espresso, susu segar, dan gula aren. Favorit sepanjang hari.', price: 28000, category: 'Kopi', image: milkCoffee, alt: 'Kopi susu gula aren dengan lapisan crema di cangkir keramik.' },
+  { name: 'Manual Brew', description: 'V60 seduh perlahan, dengan biji pilihan yang berganti tiap pekan.', price: 32000, category: 'Kopi', image: manualBrew, alt: 'Barista menuangkan air panas ke bubuk kopi menggunakan dripper.' },
+  { name: 'Flat White', description: 'Double shot espresso dengan microfoam yang halus.', price: 30000, category: 'Kopi', image: flatWhite, alt: 'Flat white dengan latte art daun di atas meja kayu.' },
+  { name: 'Americano', description: 'Espresso dan air, bersih dengan karakter biji pilihan.', price: 22000, category: 'Kopi', image: americano, alt: 'Segelas americano hitam dengan es batu.' },
+  { name: 'Cokelat Teduh', description: 'Cokelat pekat dan susu segar, hangat atau dingin.', price: 27000, category: 'Non-Kopi', image: chocolate, alt: 'Minuman cokelat pekat dengan taburan bubuk kakao.' },
+  { name: 'Matcha Latte', description: 'Matcha pilihan dengan susu yang lembut dan seimbang.', price: 30000, category: 'Non-Kopi', image: matcha, alt: 'Matcha latte hijau dalam gelas bening.' },
+  { name: 'Teh Serai Madu', description: 'Teh hangat dengan serai dan madu lokal.', price: 22000, category: 'Non-Kopi', image: tea, alt: 'Teh hangat berwarna keemasan di dalam cangkir kaca.' },
+  { name: 'Es Lemon Madu', description: 'Perasan lemon segar dengan madu dan es.', price: 24000, category: 'Non-Kopi', image: lemon, alt: 'Minuman lemon madu dingin dengan irisan lemon segar.' },
+  { name: 'Croissant Mentega', description: 'Renyah di luar, lembut berlapis di dalam.', price: 24000, category: 'Makanan', image: croissant, alt: 'Croissant mentega berlapis dengan kulit keemasan.' },
+  { name: 'Roti Panggang', description: 'Roti hangat dengan selai rumahan untuk teman ngopi.', price: 20000, category: 'Makanan', image: toast, alt: 'Roti panggang dengan olesan selai di piring kecil.' },
+  { name: 'Banana Bread', description: 'Pisang matang dan kayu manis, cocok untuk jeda sore.', price: 26000, category: 'Makanan', image: bananaBread, alt: 'Potongan banana bread rumahan di atas piring.' },
+  { name: 'Cookies Cokelat', description: 'Cookies panggang dengan potongan cokelat di setiap gigitan.', price: 16000, category: 'Makanan', image: cookies, alt: 'Cookies cokelat panggang dengan potongan cokelat leleh.' }
 ] as const;
-export const rupiah=(n:number)=>new Intl.NumberFormat('id-ID',{style:'currency',currency:'IDR',maximumFractionDigits:0}).format(n);
+export const rupiah = (amount: number) => new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(amount);
