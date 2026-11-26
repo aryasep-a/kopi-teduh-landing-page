@@ -12,6 +12,6 @@ const photos = { hero, beans, interior, bar, terrace, map: location };
 const widths = kind === 'hero' ? [640, 960, 1400] : [480, 800, 1200];
 ---
 <div class:list={['photo', className]}>
-  <Picture src={photos[kind]} alt={label} widths={widths} sizes={kind === 'hero' ? '(max-width: 767px) 100vw, 48vw' : '(max-width: 767px) 100vw, 50vw'} formats={['avif', 'webp']} loading={kind === 'hero' ? 'eager' : loading} decoding="async" fetchpriority={kind === 'hero' ? 'high' : 'auto'} />
+  <Picture src={photos[kind]} alt={label} widths={widths} sizes={kind === 'hero' ? '(max-width: 767px) 100vw, 48vw' : '(max-width: 767px) 100vw, 50vw'} formats={['avif', 'webp']} fallbackFormat="webp" loading={kind === 'hero' ? 'eager' : loading} decoding="async" fetchpriority={kind === 'hero' ? 'high' : 'auto'} />
   <span class="photo-label" aria-hidden="true">{label}</span>
 </div>
