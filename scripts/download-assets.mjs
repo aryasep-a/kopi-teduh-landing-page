@@ -25,15 +25,19 @@ const assets = [
 const force=process.argv.includes('--force');
 const outputDir=path.resolve('src/assets');
 await mkdir(outputDir,{recursive:true});
+let changed=false;
 for(const [name,id] of assets){
+  const output=path.join(outputDir,name+'.webp');
+  if(!force){try{await access(output);console.log(`Using committed ${name}.webp`);continue}catch{}}
   const response=await fetch(`https://images.unsplash.com/photo-${id}?fit=crop&w=1400&q=88&fm=jpg`,{headers:{'User-Agent':'KopiTeduhPortfolioAssetBuilder/1.0'}});
   if(!response.ok)throw new Error(`Unsplash download failed for ${name}: HTTP ${response.status}`);
   const input=Buffer.from(await response.arrayBuffer());
   if(input.length<10000)throw new Error(`Unexpectedly small image for ${name}`);
-  await sharp(input).rotate().resize({width:1400,withoutEnlargement:true}).webp({quality:82,effort:5}).toFile(path.join(outputDir,name+'.webp'));
+  await sharp(input).rotate().resize({width:1400,withoutEnlargement:true}).webp({quality:82,effort:5}).toFile(output);
+  changed=true;
   console.log(`Optimized ${name}.webp`);
 }
-try{if(!force){await access('public/og-image.png');console.log('Using committed public/og-image.png');process.exit(0)}}catch{}
+if(!force&&!changed){try{await access('public/og-image.png');console.log('Using committed public/og-image.png');process.exit(0)}catch{}}
 const hero=await sharp(path.join(outputDir,'hero-coffee.webp')).resize(1200,630,{fit:'cover',position:'attention'}).toBuffer();
 const overlay=Buffer.from(`<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg"><rect width="1200" height="630" fill="#241812" opacity=".42"/><rect x="62" y="62" width="1076" height="506" rx="28" fill="none" stroke="#F5EFE6" stroke-opacity=".7" stroke-width="2"/><text x="112" y="190" fill="#F5EFE6" font-family="Georgia,serif" font-size="38">KEDAI KOPI · KOTA TANGERANG</text><text x="108" y="340" fill="#FFFFFF" font-family="Georgia,serif" font-size="112">Kopi Teduh</text><text x="114" y="416" fill="#FFF4E8" font-family="Arial,sans-serif" font-size="34">Duduk dulu, kopinya menyusul.</text><rect x="112" y="466" width="110" height="7" rx="3" fill="#C86B3D"/></svg>`);
 await sharp(hero).composite([{input:overlay}]).png({compressionLevel:9}).toFile('public/og-image.png');
