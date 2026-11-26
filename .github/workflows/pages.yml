@@ -18,14 +18,16 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22.23.4
+          cache: npm
       - uses: actions/configure-pages@v5
         with:
           enablement: true
       - run: npm ci
-      - name: Build public portfolio site
+      - run: npm run assets:download
+      - name: Build site
         run: npm run build
         env:
-          PUBLIC_ALLOW_INDEXING: 'true'
+          PUBLIC_ALLOW_INDEXING: ${{ vars.PUBLIC_ALLOW_INDEXING }}
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
@@ -38,7 +40,6 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
-
   audit:
     needs: deploy
     runs-on: ubuntu-latest
@@ -52,27 +53,3 @@ jobs:
           runs: 1
           uploadArtifacts: true
           temporaryPublicStorage: true
-
-  screenshots:
-    needs: deploy
-    runs-on: ubuntu-24.04
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22.23.4
-      - name: Install Chromium
-        run: npx --yes playwright@1.55.0 install --with-deps chromium
-      - name: Capture portfolio breakpoints
-        run: |
-          npx --yes playwright@1.55.0 screenshot --browser chromium --viewport-size "390,844" --full-page --wait-for-timeout 1500 https://aryasep-a.github.io/kopi-teduh-landing-page/ docs/screenshots/mobile.png
-          npx --yes playwright@1.55.0 screenshot --browser chromium --viewport-size "1440,900" --full-page --wait-for-timeout 1500 https://aryasep-a.github.io/kopi-teduh-landing-page/ docs/screenshots/desktop.png
-      - name: Commit screenshots
-        run: |
-          git add docs/screenshots/mobile.png docs/screenshots/desktop.png
-          if ! git diff --cached --quiet; then
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git commit -m "docs: add desktop and mobile portfolio screenshots"
-            git push
-          fi
