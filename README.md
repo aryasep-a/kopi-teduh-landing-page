@@ -1,17 +1,17 @@
-# Sambal Nusa — UMKM Landing Page
+# Kopi Teduh — Kedai Kopi Fiktif
 
-Contemporary editorial landing page untuk brand kuliner fiktif **Sambal Nusa**. Proyek portfolio ini mendemonstrasikan bagaimana website sederhana untuk UMKM Indonesia bisa punya identitas visual yang kuat sekaligus jalur pemesanan yang jelas.
+Landing page portfolio untuk **Kopi Teduh**, konsep kedai kopi fiktif di Tangerang, Banten. Desain mengikuti art direction editorial yang hangat, tenang, dan minimal: tipografi serif, warna kopi dan krem, foto suasana kedai, menu yang bisa difilter, cerita brand, galeri, jam operasional, lokasi, dan CTA reservasi.
 
-> Nama brand, harga, produk, jam operasional, dan seluruh informasi bisnis merupakan konten simulasi. Ganti dengan data dan aset asli sebelum digunakan secara komersial.
+> Kopi Teduh adalah brand fiktif untuk demonstrasi portfolio. Alamat, jam operasional, menu, harga, foto, dan ulasan pada halaman ini adalah materi contoh. Ganti dengan data bisnis dan aset berizin sebelum digunakan secara komersial.
 
-## Arah desain
+## Fitur
 
-- Mobile-first dengan hierarki konten dan CTA yang jelas.
-- Identitas berbasis tipografi; tanpa logo simbol atau monogram dekoratif.
-- Art direction editorial: warna cabai, krem hangat, hijau gelap, dan foto makanan.
-- Katalog produk dengan harga, deskripsi, dan tautan pemesanan per varian.
-- Cerita brand, proses/racikan, FAQ, dan CTA WhatsApp.
-- Navigasi mobile, metadata SEO dasar, lazy-loaded imagery, dan reduced-motion support.
+- Layout responsif desktop, tablet, dan mobile.
+- Navigasi mobile dengan tombol menu.
+- Kategori menu interaktif: Kopi, Non-Kopi, dan Makanan.
+- CTA reservasi WhatsApp (nomor demo).
+- Bagian cerita, suasana, ulasan contoh, lokasi, dan jam operasional.
+- HTML semantik, metadata dasar, lazy loading gambar, dan reduced-motion support.
 
 ## Teknologi
 
@@ -27,19 +27,16 @@ python -m http.server 8000
 
 Lalu buka http://localhost:8000.
 
-## Sebelum dipublikasikan untuk bisnis nyata
+## Sebelum dipublikasikan
 
-1. Ganti nomor demo `6281234567890` pada `script.js` dengan nomor WhatsApp pemilik bisnis.
-2. Ganti foto stok dengan foto produk, dapur, kemasan, dan suasana bisnis yang autentik.
-3. Verifikasi harga, varian, bahan, berat bersih, masa simpan, pengiriman, dan jam operasional.
-4. Hapus atau ganti seluruh konten simulasi dan jangan tampilkan testimoni fiktif sebagai ulasan pelanggan asli.
-5. Uji tautan WhatsApp, tampilan mobile, aksesibilitas, dan performa sebelum serah terima.
+1. Ganti nomor WhatsApp demo `6281234567890`.
+2. Ganti alamat, tautan Maps, jam operasional, menu, dan harga dengan informasi aktual.
+3. Ganti foto stok dengan foto kedai, barista, dan menu milik bisnis atau aset yang memiliki izin penggunaan.
+4. Ganti placeholder ulasan dengan testimoni pelanggan yang nyata dan telah mendapat izin.
+5. Uji tautan, performa gambar, aksesibilitas, dan layout di beberapa ukuran layar.
 
 ## Struktur
 
-- `index.html` — struktur dan konten.
-- `styles.css` — visual system dan responsive layout.
-- `script.js` — navigasi mobile dan tautan WhatsApp.
-
----
-Built as a fictional Indonesian UMKM portfolio project.
+- `index.html` — struktur dan konten Kopi Teduh.
+- `styles.css` — sistem visual dan responsive layout.
+- `script.js` — navigasi mobile, filter menu, dan tautan WhatsApp.
