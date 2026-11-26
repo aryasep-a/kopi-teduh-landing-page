@@ -16,7 +16,7 @@ const assets = [
   ['menu-chocolate','1442512595331-e89e73853f31'],
   ['menu-matcha','1515823064-d6e0c04616a7'],
   ['menu-tea','1722654583863-6116ec8f247a'],
-  ['menu-lemon','1513558161293-cdaf765edfd4'],
+  ['menu-lemon','1712056407267-1a38c7024a8f'],
   ['menu-croissant','1555507036-ab1f4038808a'],
   ['menu-toast','1493857671500-72967e2e2760'],
   ['menu-banana-bread','1608198093002-ad4e005484ec'],
