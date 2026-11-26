@@ -1,22 +1,25 @@
 # Sambal Nusa — UMKM Landing Page
 
-Landing page demo untuk brand kuliner fiktif **Sambal Nusa**, dibuat sebagai proyek portfolio pertama VexStream. Konsep ini merepresentasikan website promosi untuk UMKM Indonesia.
+Contemporary editorial landing page untuk brand kuliner fiktif **Sambal Nusa**. Proyek portfolio ini mendemonstrasikan bagaimana website sederhana untuk UMKM Indonesia bisa punya identitas visual yang kuat sekaligus jalur pemesanan yang jelas.
 
-> Seluruh nama brand, harga, produk, dan testimoni pada proyek ini adalah konten simulasi. Ganti dengan informasi bisnis sebenarnya sebelum digunakan secara komersial.
+> Nama brand, harga, produk, jam operasional, dan seluruh informasi bisnis merupakan konten simulasi. Ganti dengan data dan aset asli sebelum digunakan secara komersial.
 
-## Tujuan proyek
-Mendemonstrasikan landing page UMKM yang membantu calon pelanggan mengenal produk, membangun kepercayaan, dan memulai pemesanan melalui WhatsApp.
+## Arah desain
 
-## Fitur
-- Copywriting dan antarmuka berbahasa Indonesia.
-- Layout responsif dengan pendekatan mobile-first.
-- Hero, cerita brand, katalog produk, keunggulan, testimoni, dan CTA pemesanan.
-- Tombol WhatsApp dengan pesan otomatis, termasuk pesan khusus per produk.
-- Navigasi mobile, metadata SEO dasar, dan dukungan reduced motion.
-- Tanpa framework atau proses build: HTML, CSS, dan JavaScript vanilla.
+- Mobile-first dengan hierarki konten dan CTA yang jelas.
+- Identitas berbasis tipografi; tanpa logo simbol atau monogram dekoratif.
+- Art direction editorial: warna cabai, krem hangat, hijau gelap, dan foto makanan.
+- Katalog produk dengan harga, deskripsi, dan tautan pemesanan per varian.
+- Cerita brand, proses/racikan, FAQ, dan CTA WhatsApp.
+- Navigasi mobile, metadata SEO dasar, lazy-loaded imagery, dan reduced-motion support.
 
-## Menjalankan secara lokal
-Buka `index.html` di browser, atau jalankan server lokal sederhana:
+## Teknologi
+
+HTML, CSS, dan JavaScript vanilla. Tidak memerlukan framework atau proses build.
+
+## Menjalankan lokal
+
+Buka `index.html` di browser atau jalankan:
 
 ```bash
 python -m http.server 8000
@@ -24,15 +27,19 @@ python -m http.server 8000
 
 Lalu buka http://localhost:8000.
 
-## Sebelum dipublikasikan
-1. Ganti nomor demo `6281234567890` di `script.js` dengan nomor WhatsApp bisnis.
-2. Ganti foto, harga, deskripsi, dan testimoni simulasi dengan aset serta informasi yang benar.
-3. Periksa kembali kebijakan pengiriman, stok, bahan, dan klaim produk sebelum ditampilkan.
+## Sebelum dipublikasikan untuk bisnis nyata
+
+1. Ganti nomor demo `6281234567890` pada `script.js` dengan nomor WhatsApp pemilik bisnis.
+2. Ganti foto stok dengan foto produk, dapur, kemasan, dan suasana bisnis yang autentik.
+3. Verifikasi harga, varian, bahan, berat bersih, masa simpan, pengiriman, dan jam operasional.
+4. Hapus atau ganti seluruh konten simulasi dan jangan tampilkan testimoni fiktif sebagai ulasan pelanggan asli.
+5. Uji tautan WhatsApp, tampilan mobile, aksesibilitas, dan performa sebelum serah terima.
 
 ## Struktur
-- `index.html` — struktur dan konten halaman.
-- `styles.css` — desain visual dan responsive layout.
+
+- `index.html` — struktur dan konten.
+- `styles.css` — visual system dan responsive layout.
 - `script.js` — navigasi mobile dan tautan WhatsApp.
 
 ---
-Built as a fictional Indonesian UMKM landing page portfolio project.
+Built as a fictional Indonesian UMKM portfolio project.
