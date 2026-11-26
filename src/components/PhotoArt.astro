@@ -1,4 +1,26 @@
 ---
-const {kind='hero',label='Ilustrasi Kopi Teduh',class:className=''}=Astro.props;const c={hero:['#CDAF86','#6B4630'],beans:['#B78A5C','#49301F'],interior:['#D9C6A9','#5A3E2D'],bar:['#D1B58F','#3E3027'],terrace:['#C5B18E','#52604A'],map:['#D6C8B2','#73816B']};const [light,dark]=c[kind];
+interface Props {
+  kind?: 'hero' | 'beans' | 'interior' | 'bar' | 'terrace' | 'map';
+  label?: string;
+  class?: string;
+}
+const { kind = 'hero', label = 'Ilustrasi Kopi Teduh', class: className = '' } = Astro.props as Props;
+const colors: Record<NonNullable<Props['kind']>, string[]> = {
+  hero: ['#CDAF86', '#6B4630'],
+  beans: ['#B78A5C', '#49301F'],
+  interior: ['#D9C6A9', '#5A3E2D'],
+  bar: ['#D1B58F', '#3E3027'],
+  terrace: ['#C5B18E', '#52604A'],
+  map: ['#D6C8B2', '#73816B'],
+};
+const [light, dark] = colors[kind];
 ---
-<div class:list={['photo',className]} role="img" aria-label={label}><svg viewBox="0 0 720 560" width="720" height="560" aria-hidden="true"><rect width="720" height="560" fill={light}/><path d="M0 390Q160 330 310 390T720 360V560H0Z" fill={dark} opacity=".25"/><path d="M110 410V150H610V410M110 270H610M260 150V410M460 150V410" fill="none" stroke={dark} stroke-width="18"/><circle cx="360" cy="280" r="68" fill="#F5EFE6" opacity=".8"/><path d="M320 250h80l-8 70h-64z" fill="#A64B24"/></svg></div>
+<div class:list={['photo', className]} role="img" aria-label={label}>
+  <svg viewBox="0 0 720 560" width="720" height="560" aria-hidden="true">
+    <rect width="720" height="560" fill={light} />
+    <path d="M0 390Q160 330 310 390T720 360V560H0Z" fill={dark} opacity=".25" />
+    <path d="M110 410V150H610V410M110 270H610M260 150V410M460 150V410" fill="none" stroke={dark} stroke-width="18" />
+    <circle cx="360" cy="280" r="68" fill="#F5EFE6" opacity=".8" />
+    <path d="M320 250h80l-8 70h-64z" fill="#A64B24" />
+  </svg>
+</div>
