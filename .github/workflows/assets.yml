@@ -2,11 +2,6 @@ name: Download and optimize photo assets
 on:
   push:
     branches: [main]
-    paths:
-      - 'scripts/download-assets.mjs'
-      - 'src/**'
-      - 'package.json'
-      - 'package-lock.json'
   workflow_dispatch:
 permissions:
   contents: write
