@@ -22,7 +22,10 @@ jobs:
         with:
           enablement: true
       - run: npm ci
-      - run: npm run build
+      - name: Build public portfolio site
+        run: npm run build
+        env:
+          PUBLIC_ALLOW_INDEXING: 'true'
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
