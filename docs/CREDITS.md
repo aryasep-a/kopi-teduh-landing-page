@@ -20,7 +20,7 @@ Foto merupakan visual ilustratif untuk bisnis fiktif Kopi Teduh, bukan dokumenta
 | menu-americano | Americano | 1445116572660-236099ec97a0 |
 | menu-chocolate | Cokelat Teduh | 1442512595331-e89e73853f31 |
 | menu-matcha | Matcha Latte | 1515823064-d6e0c04616a7 |
-| menu-tea | Teh Serai Madu | 1544787219-7f47afb76574 |
+| menu-tea | Teh Serai Madu | 1722654583863-6116ec8f247a |
 | menu-lemon | Es Lemon Madu | 1513558161293-cdaf765edfd4 |
 | menu-croissant | Croissant Mentega | 1555507036-ab1f4038808a |
 | menu-toast | Roti Panggang | 1493857671500-72967e2e2760 |
