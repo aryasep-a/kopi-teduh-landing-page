@@ -43,4 +43,4 @@ await sharp(path.join(outputDir,'hero-coffee.webp'))
   .resize(1200,630,{fit:'cover',position:'attention'})
   .png({compressionLevel:9})
   .toFile('public/og-image.png');
-console.log('Generated public/og-image.png (1200 x 630) from src/assets/hero-coffee.webp.');
+console.log('Generated public/og-image.png (1200 x 630) from src/assets/gallery-interior.webp.');
