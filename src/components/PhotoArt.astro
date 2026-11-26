@@ -1,21 +1,13 @@
 ---
-interface Props {
-  kind?: 'hero' | 'beans' | 'interior' | 'bar' | 'terrace' | 'map';
-  label?: string;
-  class?: string;
-}
-const { kind = 'hero', label = 'Ilustrasi Kopi Teduh', class: className = '' } = Astro.props as Props;
-const src = '/kopi-teduh-landing-page/images/' + kind + '.svg';
+interface Props { kind?: 'hero' | 'beans' | 'interior' | 'bar' | 'terrace' | 'map'; label?: string; class?: string; }
+const { kind = 'hero', label = 'Foto suasana Kopi Teduh', class: className = '' } = Astro.props as Props;
+const photos: Record<NonNullable<Props['kind']>, string> = {
+hero:'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1400&q=85',
+beans:'https://images.unsplash.com/photo-1559056199-641a0ac8b55e?auto=format&fit=crop&w=1200&q=82',
+interior:'https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1200&q=82',
+bar:'https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=1200&q=82',
+terrace:'https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1200&q=82',
+map:'https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=1200&q=82'
+};
 ---
-<div class:list={['photo', className]}>
-  <img
-    src={src}
-    alt={label}
-    width="900"
-    height="700"
-    loading={kind === 'hero' ? 'eager' : 'lazy'}
-    decoding="async"
-    fetchpriority={kind === 'hero' ? 'high' : 'auto'}
-  />
-  <span class="photo-label" aria-hidden="true">{label}</span>
-</div>
+<div class:list={['photo', className]}><img src={photos[kind]} alt={label} width="1400" height="1000" sizes="(max-width: 767px) 100vw, 50vw" loading={kind === 'hero' ? 'eager' : 'lazy'} decoding="async" fetchpriority={kind === 'hero' ? 'high' : 'auto'}/><span class="photo-label" aria-hidden="true">{label}</span></div>
