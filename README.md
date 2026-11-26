@@ -22,7 +22,7 @@ src/components (Navbar, PhotoArt, MenuSection, Gallery, ReservationForm); src/da
 Edit kontak, alamat, jam, sosial, canonical di src/data/site.ts; menu dan harga di src/data/menu.ts; testimoni di src/data/testimonials.ts; ilustrasi di public/images.
 
 ## Indexing
-PUBLIC_ALLOW_INDEXING=false menghasilkan noindex,nofollow. Set true saat build hanya setelah data contoh diganti dan pemilik menyetujui indexing. robots.txt mengizinkan crawler; meta robots tetap menjadi kontrol noindex default.
+PUBLIC_ALLOW_INDEXING=false adalah default lokal dan menghasilkan noindex,nofollow. Workflow GitHub Pages menetapkan PUBLIC_ALLOW_INDEXING=true untuk demo portfolio publik agar dapat ditemukan mesin pencari; ubah ke false di workflow jika pemilik tidak menginginkan indexing. robots.txt mengizinkan crawler; meta robots menjadi kontrol utama.
 
 ## Deploy
 GitHub Pages: push main, buka Settings > Pages, pilih GitHub Actions. Workflow pages.yml mengaktifkan Pages, build folder dist dan deploy. Base path /kopi-teduh-landing-page telah diatur di astro.config.mjs. URL: https://aryasep-a.github.io/kopi-teduh-landing-page/.
